@@ -1,0 +1,53 @@
+---
+title: "Temperature Converter"
+output: html_document
+---
+**Name: Linqi Yang**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### I. Overview
+This is a temperature converter that takes temperature values in Celsius as inputs and returns temperature values in Fahrenheit as outputs.
+
+### II. Calculations in the Tmperature Converter 
+Celcius (input) * 9/5 + 32 = Fahrenheit (output)  
+
+### III. How to Use the Temperature Converter 
+- Move the slider on the left panel to input a temperature value in Celcius.  
+- A corresponding temperature value in Fahrenheit will display on the right panel. 
+
+### IV. Examples  
+- 0 Celcius = 32 Fahrenheit  
+- 100 Celcius = 212 Fahrenheit
+
+### V. Note
+The temperature converter only takes in integer values from 0 Celcius **(freezing point)** to 100 Celcius **(boiling point)**.
+
+### VI. Appendix (Code)
+**ui**
+```{r, eval=F}
+library(shiny)
+shinyUI(fluidPage(
+    titlePanel("Celsius to Fahrenheit"),
+    sidebarLayout(
+        sidebarPanel(
+            h1("Celsius"),
+            sliderInput("slider2", "Move the Slider!", 0, 100, 0)
+        ),
+        mainPanel(
+            h3("Fahrenheit"),
+            textOutput("text1")
+        )
+    )
+))
+```
+
+**server**
+```{r, eval=F}
+library(shiny)
+shinyServer(function(input, output) {
+    output$text1 = renderText(input$slider2 *9/5 + 32)
+})
+```
