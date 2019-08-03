@@ -1,0 +1,36 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+```
+
+## Introduction
+<div class="red2">
+This is a temperature converter **(produced using shiny package in RStudio)** that takes temperature values in Celsius as inputs and returns temperature values in Fahrenheit as outputs.  
+
+## The Temperature Converter
+### **Simple & Quick to Use**
+1. Move the slider on the left panel to input a temperature value in Celcius.  
+2. A corresponding temperature value in Fahrenheit will display on the right panel. 
+
+### **Calculations behind the Scene**
+Celcius (input) * 9/5 + 32 = Fahrenheit (output)  
+
+## How it works
+- **0 Celcius = 32 Fahrenheit**  
+```{r, comment = ""}
+temp1_c <- 0
+(temp1_f <- temp1_c * 9/5 + 32)
+```
+
+- **100 Celcius = 212 Fahrenheit**  
+```{r, comment = ""}
+temp2_c <- 100
+(temp2_f <- temp2_c * 9/5 + 32)
+```
+
+## Conclusions
+### **Note**  
+The temperature converter only takes in integer values from 0 Celcius **(freezing point)** to 100 Celcius **(boiling point)**.
+
+### **Implications**
+This simple temperature converter can be expanded with a larger scale and also for convertions of currency, length and etc.
